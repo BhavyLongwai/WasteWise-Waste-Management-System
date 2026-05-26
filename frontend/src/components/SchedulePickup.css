@@ -1,0 +1,422 @@
+/* ============================================================
+   WasteWise — Schedule Pickup
+   Professional green theme, consistent with dashboard
+   ============================================================ */
+
+.schedule-pickup-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ── Header Banner ───────────────────────────────────────── */
+.schedule-header {
+  background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 60%, #40916c 100%);
+  border-radius: 20px;
+  padding: 36px 40px;
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(27, 67, 50, 0.25);
+}
+
+.schedule-header::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 240px;
+  height: 240px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.schedule-header::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: 25%;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+}
+
+.schedule-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.3px;
+}
+
+.schedule-subtitle {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.header-decoration {
+  position: relative;
+  width: 100px;
+  height: 80px;
+  z-index: 2;
+}
+
+.deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+}
+
+.circle-1 { width: 60px; height: 60px; top: 0; right: 0; }
+.circle-2 { width: 40px; height: 40px; top: 20px; right: 45px; background: rgba(255,255,255,.07); }
+.circle-3 { width: 24px; height: 24px; top: 8px; right: 20px; background: rgba(255,255,255,.15); }
+
+/* ── Error Alert ─────────────────────────────────────────── */
+.error-alert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fef2f2;
+  border: 1px solid #fee2e2;
+  border-left: 4px solid #dc2626;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  color: #dc2626;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ── Form ────────────────────────────────────────────────── */
+.pickup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Form Section Card ───────────────────────────────────── */
+.form-section {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f4f2;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a2e22;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f0f4f2;
+}
+
+.section-label svg {
+  color: #2d6a4f;
+}
+
+/* ── Waste Type Grid ─────────────────────────────────────── */
+.waste-type-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.waste-type-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 16px;
+  border: 1.5px solid #e4ede8;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #fafcfb;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.waste-type-card:hover {
+  border-color: #40916c;
+  background: #f2faf5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.1);
+}
+
+.waste-type-card.selected {
+  border-color: #2d6a4f;
+  background: #edf7f0;
+  box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.12);
+}
+
+.waste-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.waste-type-card h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a2e22;
+  margin: 0;
+}
+
+.waste-type-card p {
+  font-size: 12px;
+  color: #7a9e8a;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.selection-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #2d6a4f;
+}
+
+/* ── Date Time Grid ──────────────────────────────────────── */
+.date-time-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* ── Form Group ──────────────────────────────────────────── */
+.form-group1 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #3a7a4a;
+  letter-spacing: 0.2px;
+}
+
+.date-input,
+.select-input,
+.number-input,
+.text-input,
+.textarea-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 14px;
+  border: 1.5px solid #d0e8d8;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #1a2e22;
+  background: #ffffff;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.date-input::placeholder,
+.select-input::placeholder,
+.number-input::placeholder,
+.text-input::placeholder,
+.textarea-input::placeholder {
+  color: #9cb8a8;
+}
+
+.date-input:focus,
+.select-input:focus,
+.number-input:focus,
+.text-input:focus,
+.textarea-input:focus {
+  border-color: #d0e8d8;
+  box-shadow: none;
+  background: #ffffff;
+}
+
+.date-input:hover,
+.select-input:hover,
+.number-input:hover,
+.text-input:hover,
+.textarea-input:hover {
+  border-color: #d0e8d8;
+}
+
+.textarea-input {
+  resize: vertical;
+  min-height: 88px;
+  line-height: 1.5;
+}
+
+.select-input {
+  appearance: auto;
+  cursor: pointer;
+}
+
+/* ── Submit Button ───────────────────────────────────────── */
+.form-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.schedule-pickup-container .submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 48px;
+  background: #1b4332 !important;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.3px;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(27, 67, 50, 0.3);
+  min-width: 220px;
+}
+
+.schedule-pickup-container .submit-btn:hover:not(:disabled) {
+  background: #152f25 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(27, 67, 50, 0.38);
+}
+
+.schedule-pickup-container .submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.schedule-pickup-container .submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner-small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Info Cards ──────────────────────────────────────────── */
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 16px;
+  background: #ffffff;
+  border: 1px solid #e8f0eb;
+  border-radius: 14px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.info-icon1 {
+  width: 48px;
+  height: 48px;
+  background: #edf7f0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.info-card h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a2e22;
+  margin: 0;
+}
+
+.info-card p {
+  font-size: 13px;
+  color: #7a9e8a;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .schedule-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px 20px;
+  }
+
+  .schedule-title { font-size: 22px; }
+
+  .waste-type-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .date-time-grid,
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    justify-content: center;
+  }
+
+  .submit-btn {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .form-section {
+    padding: 20px 16px;
+  }
+}
