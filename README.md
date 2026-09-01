@@ -344,13 +344,5 @@ Users unlock badges as they complete milestones (e.g., first pickup, 10 pickups,
 
 This project is licensed under the ISC License.
 
----
-
-## 👨‍💻 Author
-
-**Rohit**  
-GitHub: [@Rohitsaini12](https://github.com/Rohitsaini12)
-
----
 
 > Built with 💚 to make waste management smarter, cleaner, and more rewarding.
